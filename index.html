@@ -1,0 +1,30 @@
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunny Pastures Dairy</title>
+  <style>
+    body { font-family: 'Georgia', serif; margin: 0; background: #f9f9f5; color: #333; }
+    header { background: #2e7d32; color: white; text-align: center; padding: 4rem 1rem; }
+    h1 { margin: 0; font-size: 3rem; }
+    .container { max-width: 900px; margin: auto; padding: 2rem; line-height: 1.8; }
+    img { max-width: 100%; border-radius: 12px; margin: 1rem 0; }
+    .btn { background: #d4a017; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; display: inline-block; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐄 Sunny Pastures Dairy</h1>
+    <p>Fresh Milk • Happy Cows • Local Love</p>
+  </header>
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad7f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cows in field">
+    <h2>Fresh from Our Farm to Your Table</h2>
+    <p>We raise happy, grass-fed cows and deliver fresh milk, cheese, and yogurt daily. No hormones. No nonsense.</p>
+    <a href="mailto:hello@yourfarm.com" class="btn">Order Now</a>
+  </div>
+</body>
+</html>
+EOF
