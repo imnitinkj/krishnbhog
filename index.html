@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krishnabhog Dairy - शुद्ध दूध, खोया और घी कोटवा से</title>
+  <title>Krishnabhog Dairy | Pure Milk Delivery in Rewa, Satna, Maihar</title>
   <meta name="description"
-    content="कोटवा, मध्य प्रदेश से शुद्ध, घास-चराई दूध, खोया और देसी घी। साप्ताहिक सब्स्क्रिप्शन। रोज़ डिलीवरी।">
+    content="Fresh cow milk, desi ghee & khoa home delivery in Rewa, Satna, Maihar. Weekly subscription. Grass-fed, hormone-free. Order now!">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -15,6 +15,7 @@
       --green: #2e7d32;
       --light: #f8fff8;
       --white: #ffffff;
+      --cream: #fdf8e1;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,7 +81,7 @@
     .card strong { color: var(--blue); font-size: 1.2rem; }
     .price { font-weight: bold; color: #d4a017; font-size: 1.3rem; display: block; margin: 0.5rem 0; }
 
-    .whatsapp-btn, .subscribe-btn {
+    .whatsapp-btn, .subscribe-btn, .gift-btn {
       display: block; color: white; text-align: center; padding: 1.1rem;
       border-radius: 50px; font-weight: bold; text-decoration: none; margin: 1.5rem auto; max-width: 320px;
       font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all .2s;
@@ -89,18 +90,60 @@
     .whatsapp-btn:hover { background: #128C7E; transform: scale(1.03); }
     .subscribe-btn { background: #ff6d00; }
     .subscribe-btn:hover { background: #e65100; transform: scale(1.03); }
+    .gift-btn { background: #d32f2f; }
+    .gift-btn:hover { background: #b71c1c; transform: scale(1.03); }
 
     form { background: var(--light); padding: 2rem; border-radius: 18px; margin: 2rem 0; box-shadow: 0 6px 18px rgba(0,0,0,0.06); border: 1px solid #e0f2e0; }
     input, textarea, select, button { width: 100%; padding: 1rem; margin: 0.7rem 0; border: 1.5px solid #ddd; border-radius: 12px; font-family: inherit; font-size: 1rem; }
     button { background: var(--blue); color: white; font-weight: bold; border: none; cursor: pointer; transition: background .3s; }
     button:hover { background: #1565c0; }
 
+    /* Elegant Premium Badge */
+    .premium-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #d4a017, #f9e4b7);
+      color: #4a2c00;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      padding: 0.7rem 1.4rem;
+      border-radius: 50px;
+      border: 2px solid #d4a017;
+      box-shadow: 0 4px 12px rgba(212, 160, 23, 0.25);
+      margin: 1.2rem auto;
+      text-align: center;
+      max-width: 320px;
+    }
+
+    /* Subtle Delivery Areas */
+    .delivery-areas {
+      background: var(--cream);
+      padding: 1.2rem 1.5rem;
+      border-radius: 16px;
+      margin: 1.8rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+      color: #444;
+      border: 1px solid #eee;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    .delivery-areas p { margin: 0.4rem 0; font-weight: 500; }
+
+    .reviews { margin: 2rem 0; }
+    .review { background: white; padding: 1rem; border-radius: 12px; margin: 1rem 0; box-shadow: 0 3px 10px rgba(0,0,0,0.1); font-style: italic; }
+
+    .social-links a { margin: 0 12px; font-weight: bold; text-decoration: none; }
+    .instagram { color: #e1306c; }
+    .whatsapp-group { color: #25D366; }
+
     .map-container { margin: 2.5rem 0; text-align: center; }
     iframe { border-radius: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); border: 2px solid var(--gold); }
 
-    .faq-section, .subscription-info { margin: 2rem 0; }
-    .faq-question, .info-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--blue); }
-    .faq-answer, .info-text { margin-bottom: 1.5rem; color: #555; }
+    .faq-section { margin: 2rem 0; }
+    .faq-question { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--blue); }
+    .faq-answer { margin-bottom: 1.5rem; color: #555; }
 
     footer { background: var(--blue); color: white; text-align: center; padding: 1.5rem; font-size: 0.95rem; margin-top: 3rem; }
 
@@ -112,6 +155,7 @@
       .offerings { grid-template-columns: 1fr; }
       .lang-toggle { font-size: 0.72rem; padding: 0.3rem 0.6rem; top: 6px; right: 6px; }
       .logo-container { margin-top: 2.5rem; }
+      .premium-badge { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
     }
   </style>
 </head>
@@ -138,6 +182,12 @@
         From the lush green fields of <strong>Kotwa, Madhya Pradesh</strong>, we bring you fresh, grass-fed milk, khoa, and desi ghee — made with love, tradition, and purity. No hormones. Just Krishna’s blessings in every drop.
       </p>
 
+      <!-- Subtle Delivery Areas -->
+      <div class="delivery-areas">
+        <p><strong>We Deliver To:</strong> Kotwa • Rewa • Satna • Maihar • Teonthar</p>
+        <p style="font-size:0.95rem; color:#666;">Free delivery on orders above ₹200</p>
+      </div>
+
       <h3>Our Divine Offerings</h3>
       <div class="offerings">
         <div class="card"><strong>Fresh Cow Milk</strong><span class="price">₹50/liter</span><small>Delivered fresh every morning</small></div>
@@ -148,6 +198,13 @@
       <a href="https://wa.me/919891714530?text=*Krishnabhog Dairy Order*%0A%0AFresh Cow Milk - ₹50/liter%0AHomemade Khoa - ₹1000/kg%0APure Desi Ghee - ₹2000/kg%0A%0A*Your Order*%0A1. Milk: _____ liters%0A2. Khoa: _____ kg%0A3. Ghee: _____ kg%0A%0A*Deliver to*%0AName: %0AAddress: %0APhone: %0A%0AWe'll reply in 5 mins! Thank you" class="whatsapp-btn">
         Tap to Order on WhatsApp
       </a>
+
+      <!-- New Year Gift Pack -->
+      <!-- <div style="background:#fff3e0; padding:1.5rem; border-radius:16px; margin:2rem 0; text-align:center; border:2px solid #ffb74d;">
+        <h3>New Year Gift Pack</h3>
+        <p><strong>₹1999</strong> → 500g Ghee + 500g Khoa + 1kh special barfee (Free Delivery)</p>
+        <a href="https://wa.me/919891714530?text=New Year Gift Pack Order" class="gift-btn">Order Now</a>
+      </div> -->
 
       <!-- Weekly Subscription -->
       <div style="background:#fffbe6; padding:1.5rem; border-radius:16px; margin:2rem 0; border:2px solid #ffcc80;">
@@ -168,6 +225,44 @@
         </form>
       </div>
 
+      <!-- Refer & Earn -->
+      <div style="background:#e3f2fd; padding:1.5rem; border-radius:16px; margin:2rem 0; text-align:center; border:2px solid #64b5f6;">
+        <h3>Refer & Earn ₹50!</h3>
+        <p>Share your link → Friend orders → You get ₹50 credit</p>
+        <a href="https://wa.me/?text=Try%20Krishnabhog%20Dairy%20-%20Pure%20milk%20from%20Kotwa!%20https://krishnbhog.com" class="whatsapp-btn">Share Now</a>
+      </div>
+
+      <!-- Customer Reviews -->
+      <div class="reviews">
+        <h3>What Our Customers Say</h3>
+        <div class="review"><p>"Best milk in Rewa! My kids love it." — <strong>Shalini Tiwari, Satna</strong></p></div>
+        <div class="review"><p>"Ghee is pure gold. No more market ghee!" — <strong>Ram Prasad, Maihar</strong></p></div>
+        <div class="review"><p>"Weekly delivery is a lifesaver!" — <strong>Neha Singh, Rewa</strong></p></div>
+        <div class="review"><p>"Farm visit was amazing!" — <strong>Amit Patel, Teonthar</strong></p></div>
+      </div>
+
+      <!-- Farm Tour -->
+      <div style="background:#f3e5f5; padding:1.5rem; border-radius:16px; margin:2rem 0; border:2px solid #ba68c8;">
+        <h3>Visit Our Farm!</h3>
+        <p>Experience Krishna’s blessings firsthand. ₹500/person (includes lunch)</p>
+        <form action="https://formspree.io/f/xgvpqeww" method="POST">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="tel" name="phone" placeholder="Phone" required>
+          <input type="date" name="date" required>
+          <button type="submit">Book Farm Tour</button>
+        </form>
+      </div>
+
+      <!-- Social Links -->
+      <div style="text-align:center; margin:2rem 0;">
+        <h3>Join Our Family</h3>
+        <div class="social-links">
+          <a href="https://instagram.com/krishnabhog" class="instagram">Instagram</a> • 
+          <a href="https://chat.whatsapp.com/JOIN_GROUP_LINK" class="whatsapp-group">WhatsApp Group</a>
+        </div>
+      </div>
+
+      <!-- Contact & Feedback -->
       <form action="https://formspree.io/f/xgvpqeww" method="POST">
         <h3>Get in Touch or Place Order</h3>
         <input type="text" name="name" placeholder="Your Name" required>
@@ -177,7 +272,6 @@
         <button type="submit">Send Order</button>
       </form>
 
-      <!-- Feedback Form -->
       <form action="https://formspree.io/f/xgvpqeww" method="POST" style="margin-top: 2rem;">
         <h3>Share Your Feedback</h3>
         <p>Help us improve! Tell us what you think.</p>
@@ -187,7 +281,7 @@
         <button type="submit">Submit Feedback</button>
       </form>
 
-      <!-- FAQ Section -->
+      <!-- FAQ -->
       <div class="faq-section">
         <h3>Frequently Asked Questions</h3>
         <div class="faq-question">What is the delivery time?</div>
@@ -215,6 +309,11 @@
         <strong>कोटवा, मध्य प्रदेश</strong> के हरे-भरे खेतों से हम आपके लिए लाते हैं ताज़ा, घास-चराई दूध, खोया और देसी घी — प्रेम, परंपरा और शुद्धता के साथ। कोई हार्मोन नहीं। हर बूंद में कृष्ण का आशीर्वाद।
       </p>
 
+      <div class="delivery-areas">
+        <p><strong>हम डिलीवरी करते हैं:</strong> कोटवा • रीवा • सतना • मैहर • तेओन्थर</p>
+        <p style="font-size:0.95rem; color:#666;">₹200 से ऊपर मुफ्त डिलीवरी</p>
+      </div>
+
       <h3>हमारे दिव्य प्रसाद</h3>
       <div class="offerings">
         <div class="card"><strong>ताज़ा गाय का दूध</strong><span class="price">₹50/लीटर</span><small>हर सुबह ताज़ा डिलीवरी</small></div>
@@ -225,7 +324,12 @@
       <a href="https://wa.me/919891714530?text=*कृष्णभोग डेयरी ऑर्डर*%0A%0Aताज़ा गाय का दूध - ₹50/लीटर%0Aघर का खोया - ₹1000/किलो%0Aशुद्ध देसी घी - ₹2000/किलो%0A%0A*आपका ऑर्डर*%0A1. दूध: _____ लीटर%0A2. खोया: _____ किलो%0A3. घी: _____ किलो%0A%0A*डिलीवर करें*%0Aनाम: %0Aपता: %0Aफ़ोन: %0A%0A5 मिनट में जवाब देंगे! धन्यवाद नमस्ते"
         class="whatsapp-btn">व्हाट्सएप पर ऑर्डर करें</a>
 
-      <!-- Weekly Subscription in Hindi -->
+      <!-- <div style="background:#fff3e0; padding:1.5rem; border-radius:16px; margin:2rem 0; text-align:center; border:2px solid #ffb74d;">
+        <h3>दिवाली गिफ्ट पैक</h3>
+        <p><strong>₹999</strong> → 500g घी + 500g खोया + 1L दूध (फ्री डिलीवरी)</p>
+        <a href="https://wa.me/919891714530?text=दिवाली गिफ्ट पैक ऑर्डर" class="gift-btn">अभी ऑर्डर करें</a>
+      </div> -->
+
       <div style="background:#fffbe6; padding:1.5rem; border-radius:16px; margin:2rem 0; border:2px solid #ffcc80;">
         <h3>साप्ताहिक सब्स्क्रिप्शन प्लान</h3>
         <p><strong>हर सोमवार और गुरुवार</strong> को ताज़ा डिलीवरी — कभी खत्म नहीं होगा!</p>
@@ -244,6 +348,40 @@
         </form>
       </div>
 
+      <div style="background:#e3f2fd; padding:1.5rem; border-radius:16px; margin:2rem 0; text-align:center; border:2px solid #64b5f6;">
+        <h3>दोस्त रेफर करें, ₹50 कमाएं!</h3>
+        <p>लिंक शेयर करें → दोस्त ऑर्डर करे → आपको ₹50 क्रेडिट</p>
+        <a href="https://wa.me/?text=कृष्णभोग डेयरी ट्राई करें - कोटवा से शुद्ध दूध! https://krishnbhog.com" class="whatsapp-btn">अभी शेयर करें</a>
+      </div>
+
+      <div class="reviews">
+        <h3>हमारे ग्राहक क्या कहते हैं</h3>
+        <div class="review"><p>"रीवा में सबसे अच्छा दूध! मेरे बच्चे पसंद करते हैं।" — <strong>शालिनी तिवारी, सतना</strong></p></div>
+        <div class="review"><p>"घी शुद्ध सोना है। बाजार का घी बंद!" — <strong>राम प्रसाद, मैहर</strong></p></div>
+        <div class="review"><p>"साप्ताहिक डिलीवरी जीवनरक्षक है!" — <strong>नेहा सिंह, रीवा</strong></p></div>
+        <div class="review"><p>"फार्म विजिट अद्भुत थी!" — <strong>अमित पटेल, तेओन्थर</strong></p></div>
+      </div>
+
+      <div style="background:#f3e5f5; padding:1.5rem; border-radius:16px; margin:2rem 0; border:2px solid #ba68c8;">
+        <h3>हमारा फार्म देखें!</h3>
+        <p>कृष्ण का आशीर्वाद अनुभव करें। ₹500/व्यक्ति (लंच सहित)</p>
+        <form action="https://formspree.io/f/xgvpqeww" method="POST">
+          <input type="text" name="name" placeholder="नाम" required>
+          <input type="tel" name="phone" placeholder="फ़ोन" required>
+          <input type="date" name="date" required>
+          <button type="submit">फार्म टूर बुक करें</button>
+        </form>
+      </div>
+
+      <div style="text-align:center; margin:2rem 0;">
+        <h3>हमारे परिवार से जुड़ें</h3>
+        <div class="social-links">
+          <a href="https://instagram.com/krishnabhog" class="instagram">इंस्टाग्राम</a> • 
+          <a href="https://chat.whatsapp.com/JOIN_GROUP_LINK" class="whatsapp-group">व्हाट्सएप ग्रुप</a>
+        </div>
+      </div>
+
+      <!-- Hindi Forms & FAQ -->
       <form action="https://formspree.io/f/xgvpqeww" method="POST">
         <h3>संपर्क करें या ऑर्डर दें</h3>
         <input type="text" name="name" placeholder="आपका नाम" required>
@@ -253,7 +391,6 @@
         <button type="submit">ऑर्डर भेजें</button>
       </form>
 
-      <!-- Feedback & FAQ in Hindi -->
       <form action="https://formspree.io/f/xgvpqeww" method="POST" style="margin-top: 2rem;">
         <h3>अपनी प्रतिक्रिया दें</h3>
         <p>हमारी मदद करें! अपनी राय बताएं।</p>
