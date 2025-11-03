@@ -1,79 +1,209 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Krishn Bhog Dairy - Fresh from the Pastures</title>
-  <meta name="description" content="Pure, grass-fed milk, yogurt, and ghee inspired by Krishna's feasts. Local dairy farming at its best.">
+  <title>Krishn Bhog Dairy - Pure Ghee, Milk & Yogurt from Kotwa</title>
+  <meta name="description" content="Fresh, grass-fed dairy from Kotwa, Madhya Pradesh. Pure milk, yogurt, and ghee inspired by Krishna's divine feasts.">
   <style>
-    body { font-family: 'Georgia', serif; margin: 0; background: linear-gradient(to bottom, #f0f8f0, #e8f5e8); color: #333; }
-    header { background: #2e7d32; color: white; text-align: center; padding: 4rem 1rem; }
-    h1 { margin: 0; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-    .container { max-width: 900px; margin: auto; padding: 2rem; line-height: 1.8; }
-    img { max-width: 100%; height: auto; border-radius: 12px; margin: 1rem 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .btn, .whatsapp-btn { padding: 1rem 2rem; border-radius: 8px; display: inline-block; margin: 1rem; text-decoration: none; font-weight: bold; }
-    .btn { background: #d4a017; color: white; }
-    .whatsapp-btn { background: #25D366; color: white; border-radius: 50px; }
-    .btn:hover { background: #b8860b; }
-    footer { background: #2e7d32; color: white; text-align: center; padding: 1rem; margin-top: 3rem; }
-    form { background:#f0f8f0; padding:2rem; border-radius:12px; margin:2rem 0; }
-    input, textarea, button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #ccc; }
-    button { background:#d4a017; color:white; font-weight:bold; cursor:pointer; }
+    * { box-sizing: border-box; }
+    body { 
+      font-family: 'Georgia', serif; 
+      margin: 0; 
+      background: linear-gradient(to bottom, #f0f8f0, #e8f5e8); 
+      color: #333; 
+      line-height: 1.7;
+    }
+    header { 
+      background: #1a5d1a; 
+      color: white; 
+      text-align: center; 
+      padding: 1.5rem 1rem; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .logo {
+      width: 180px;
+      height: auto;
+      margin: 0 auto 0.5rem;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    h1 { 
+      margin: 0; 
+      font-size: 1.8rem; 
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+    .tagline { 
+      font-size: 1rem; 
+      opacity: 0.9; 
+      margin: 0.3rem 0 0;
+    }
+    .container { 
+      max-width: 900px; 
+      margin: auto; 
+      padding: 1.5rem; 
+    }
+    .hero-img { 
+      width: 100%; 
+      border-radius: 16px; 
+      margin: 1.5rem 0; 
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    h2, h3 { 
+      color: #1a5d1a; 
+      text-align: center;
+    }
+    .offerings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .price { font-weight: bold; color: #d4a017; font-size: 1.1rem; }
+    .whatsapp-btn {
+      display: block;
+      background: #25D366;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 1.5rem auto;
+      max-width: 300px;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+    }
+    form {
+      background: #f8fff8;
+      padding: 1.8rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 0.9rem;
+      margin: 0.6rem 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-family: inherit;
+    }
+    button {
+      background: #d4a017;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #b8860b; }
+    .map-container {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    iframe {
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #1a5d1a;
+      color: white;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 600px) {
+      .logo { width: 140px; }
+      h1 { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>🐄 Krishn Bhog Dairy</h1>
-    <p>Fresh Milk • Yogurt • Ghee • Inspired by Krishna's Divine Feasts</p>
+    <img src="krishnbhog-logo.png" alt="Krishn Bhog Dairy Logo" class="logo">
+    <h1>Krishn Bhog Dairy</h1>
+    <p class="tagline">Pure • Fresh • Divine</p>
   </header>
+
   <div class="container">
-    <img src="https://images.unsplash.com/photo-1500595046743-cd271d6ee8f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Happy cows">
+
+    <img src="happy-grazing-cows.png" alt="Happy cows in green pasture" class="hero-img">
+
     <h2>Pure Dairy from Sacred Lands</h2>
-    <p>Grass-fed cows, fresh daily. No hormones. Just love and tradition.</p>
+    <p style="text-align:center;">
+      From the green pastures of <strong>Kotwa, Madhya Pradesh</strong>, we bring you fresh, grass-fed milk, yogurt, and ghee — inspired by Krishna's divine feasts. No hormones. Just love, tradition, and purity.
+    </p>
+
     <h3>Our Offerings</h3>
-    <ul style="font-size:1.1rem;">
-      <li><strong>Fresh Cow Milk:</strong> ₹50/liter – Delivered daily</li>
-      <li><strong>Homemade Yogurt:</strong> ₹60/kg – Probiotic-rich</li>
-      <li><strong>Pure Ghee:</strong> ₹800/kg – For authentic flavors</li>
-    </ul>
+    <div class="offerings">
+      <div class="card">
+        <strong>Fresh Cow Milk</strong><br>
+        <span class="price">₹50/liter</span><br>
+        <small>Delivered daily</small>
+      </div>
+      <div class="card">
+        <strong>Homemade Yogurt</strong><br>
+        <span class="price">₹60/kg</span><br>
+        <small>Probiotic-rich</small>
+      </div>
+      <div class="card">
+        <strong>Pure Desi Ghee</strong><br>
+        <span class="price">₹800/kg</span><br>
+        <small>For authentic flavors</small>
+      </div>
+    </div>
 
     <!-- WhatsApp Button -->
-    <div style="text-align:center;">
-      <a href="https://wa.me/917483627942?text=Hi!%20I'd%20like%20to%20order%20from%20Krishn%20Bhog%20Dairy" class="whatsapp-btn">
-        📱 Order on WhatsApp
-      </a>
-    </div>
+    <a href="https://wa.me/917483627942?text=Hi!%20I'd%20like%20to%20order%20from%20Krishn%20Bhog%20Dairy" class="whatsapp-btn">
+      Order on WhatsApp
+    </a>
 
     <!-- Contact Form -->
     <form action="https://formspree.io/f/xgvpqeww" method="POST">
-      <h3 style="color:#2e7d32;">Or Fill This Form</h3>
+      <h3>Get in Touch or Place Order</h3>
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="tel" name="phone" placeholder="Phone (WhatsApp)" required>
-      <input type="email" name="email" placeholder="Email">
-      <textarea name="message" placeholder="e.g., 2L milk + 500g ghee" required></textarea>
+      <input type="email" name="email" placeholder="Your Email">
+      <textarea name="message" placeholder="e.g., 2L milk + 500g ghee" required rows="3"></textarea>
       <button type="submit">Send Order</button>
     </form>
 
     <!-- Google Maps -->
     <div class="map-container">
-        <h3 style="color:#2e7d32; text-align:center;">🌾 Visit Our Farm in Kotwa, Madhya Pradesh</h3>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.123456789!2d81.37431179999999!3d24.9491155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3984e83d40c15409%3A0x37ef9d7e7e5e524e!2sKotwa%2C%20Madhya%20Pradesh%20486447!5e0!3m2!1sen!2sin!4v1730636800000!5m2!1sen!2sin"
-          width="100%"
-          height="400"
-          style="border:0; border-radius:12px;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        <p style="font-size:0.9rem; color:#666; text-align:center; margin-top:0.5rem;">
-          Kotwa, Madhya Pradesh 486447 – Fresh dairy straight from the pastures!
-        </p>
-      </div>
+      <h3>Visit Our Farm in Kotwa</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.123456789!2d81.37431179999999!3d24.9491155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3984e83d40c15409%3A0x37ef9d7e7e5e524e!2sKotwa%2C%20Madhya%20Pradesh%20486447!5e0!3m2!1sen!2sin!4v1730636800000!5m2!1sen!2sin"
+        width="100%"
+        height="380"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">
+        Kotwa, Madhya Pradesh 486447
+      </p>
     </div>
+
   </div>
+
   <footer>
-    <p>© 2025 Krishn Bhog Dairy. All rights moooo'd. 🌾</p>
+    <p>© 2025 Krishn Bhog Dairy. All rights moooo'd. Made with love in Kotwa.</p>
   </footer>
+
 </body>
 </html>
