@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krishnabhog Dairy - शुद्ध दूध, खोया और घी कोटवा से</title>
   <meta name="description"
-    content="कोटवा, मध्य प्रदेश से शुद्ध, घास-चराई दूध, खोया और देसी घी। कृष्ण की भोग प्रेरित। रोज़ डिलीवरी।">
+    content="कोटवा, मध्य प्रदेश से शुद्ध, घास-चराई दूध, खोया और देसी घी। साप्ताहिक सब्स्क्रिप्शन। रोज़ डिलीवरी।">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -26,7 +26,6 @@
       line-height: 1.7;
     }
 
-    /* === HEADER === */
     header {
       background: var(--gold);
       padding: 0.8rem 1rem 1.2rem;
@@ -52,23 +51,14 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       z-index: 1000;
       transition: background 0.2s, transform 0.15s;
-      width: auto; /* override global button width */
-      display: inline-flex; /* keep compact sizing */
+      width: auto;
+      display: inline-flex;
       align-items: center;
     }
     .lang-toggle:hover { background: #1565c0; transform: scale(1.05); }
 
-    .logo-container {
-      margin-top: 2.2rem;
-      text-align: center;
-    }
-
-    .logo {
-      width: 170px;
-      height: auto;
-      filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2));
-      transition: transform .3s;
-    }
+    .logo-container { margin-top: 2.2rem; text-align: center; }
+    .logo { width: 170px; height: auto; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2)); transition: transform .3s; }
     .logo:hover { transform: scale(1.06); }
 
     h1 { color: var(--blue); font-size: 2rem; margin: 0.4rem 0 0; font-weight: 600; letter-spacing: 0.5px; }
@@ -90,20 +80,27 @@
     .card strong { color: var(--blue); font-size: 1.2rem; }
     .price { font-weight: bold; color: #d4a017; font-size: 1.3rem; display: block; margin: 0.5rem 0; }
 
-    .whatsapp-btn {
-      display: block; background: #25D366; color: white; text-align: center; padding: 1.1rem;
-      border-radius: 50px; font-weight: bold; text-decoration: none; margin: 2rem auto; max-width: 320px;
-      font-size: 1.1rem; box-shadow: 0 5px 15px rgba(37,211,102,0.3); transition: all .2s;
+    .whatsapp-btn, .subscribe-btn {
+      display: block; color: white; text-align: center; padding: 1.1rem;
+      border-radius: 50px; font-weight: bold; text-decoration: none; margin: 1.5rem auto; max-width: 320px;
+      font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all .2s;
     }
+    .whatsapp-btn { background: #25D366; }
     .whatsapp-btn:hover { background: #128C7E; transform: scale(1.03); }
+    .subscribe-btn { background: #ff6d00; }
+    .subscribe-btn:hover { background: #e65100; transform: scale(1.03); }
 
     form { background: var(--light); padding: 2rem; border-radius: 18px; margin: 2rem 0; box-shadow: 0 6px 18px rgba(0,0,0,0.06); border: 1px solid #e0f2e0; }
-    input, textarea, button { width: 100%; padding: 1rem; margin: 0.7rem 0; border: 1.5px solid #ddd; border-radius: 12px; font-family: inherit; font-size: 1rem; }
+    input, textarea, select, button { width: 100%; padding: 1rem; margin: 0.7rem 0; border: 1.5px solid #ddd; border-radius: 12px; font-family: inherit; font-size: 1rem; }
     button { background: var(--blue); color: white; font-weight: bold; border: none; cursor: pointer; transition: background .3s; }
     button:hover { background: #1565c0; }
 
     .map-container { margin: 2.5rem 0; text-align: center; }
     iframe { border-radius: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); border: 2px solid var(--gold); }
+
+    .faq-section, .subscription-info { margin: 2rem 0; }
+    .faq-question, .info-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--blue); }
+    .faq-answer, .info-text { margin-bottom: 1.5rem; color: #555; }
 
     footer { background: var(--blue); color: white; text-align: center; padding: 1.5rem; font-size: 0.95rem; margin-top: 3rem; }
 
@@ -152,6 +149,25 @@
         Tap to Order on WhatsApp
       </a>
 
+      <!-- Weekly Subscription -->
+      <div style="background:#fffbe6; padding:1.5rem; border-radius:16px; margin:2rem 0; border:2px solid #ffcc80;">
+        <h3>Weekly Subscription Plan</h3>
+        <p>Get fresh dairy delivered <strong>every Monday & Thursday</strong> — never run out!</p>
+        <form id="subscriptionForm" onsubmit="generateSubscription(event)">
+          <select name="product" required>
+            <option value="">Choose Product</option>
+            <option value="Milk">Fresh Cow Milk (₹50/liter)</option>
+            <option value="Khoa">Homemade Khoa (₹1000/kg)</option>
+            <option value="Ghee">Pure Desi Ghee (₹2000/kg)</option>
+          </select>
+          <input type="number" name="quantity" placeholder="Quantity (liters/kg)" min="1" required>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="text" name="address" placeholder="Delivery Address" required>
+          <input type="tel" name="phone" placeholder="Phone (WhatsApp)" required>
+          <button type="submit" class="subscribe-btn">Subscribe via WhatsApp</button>
+        </form>
+      </div>
+
       <form action="https://formspree.io/f/xgvpqeww" method="POST">
         <h3>Get in Touch or Place Order</h3>
         <input type="text" name="name" placeholder="Your Name" required>
@@ -160,6 +176,29 @@
         <textarea name="message" placeholder="e.g., 2L milk + 500g ghee" required rows="3"></textarea>
         <button type="submit">Send Order</button>
       </form>
+
+      <!-- Feedback Form -->
+      <form action="https://formspree.io/f/xgvpqeww" method="POST" style="margin-top: 2rem;">
+        <h3>Share Your Feedback</h3>
+        <p>Help us improve! Tell us what you think.</p>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="feedback" placeholder="Your feedback or suggestions" required rows="4"></textarea>
+        <button type="submit">Submit Feedback</button>
+      </form>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-question">What is the delivery time?</div>
+        <div class="faq-answer">We deliver fresh every morning between 7 AM and 10 AM.</div>
+        <div class="faq-question">Do you use hormones?</div>
+        <div class="faq-answer">No, our cows are grass-fed and hormone-free.</div>
+        <div class="faq-question">Can I cancel my subscription?</div>
+        <div class="faq-answer">Yes, notify us via WhatsApp 24 hours before the next delivery.</div>
+        <div class="faq-question">How do I pay?</div>
+        <div class="faq-answer">Pay weekly via UPI, cash, or bank transfer.</div>
+      </div>
 
       <div class="map-container">
         <h3>Visit Our Farm in Kotwa</h3>
@@ -186,6 +225,25 @@
       <a href="https://wa.me/919891714530?text=*कृष्णभोग डेयरी ऑर्डर*%0A%0Aताज़ा गाय का दूध - ₹50/लीटर%0Aघर का खोया - ₹1000/किलो%0Aशुद्ध देसी घी - ₹2000/किलो%0A%0A*आपका ऑर्डर*%0A1. दूध: _____ लीटर%0A2. खोया: _____ किलो%0A3. घी: _____ किलो%0A%0A*डिलीवर करें*%0Aनाम: %0Aपता: %0Aफ़ोन: %0A%0A5 मिनट में जवाब देंगे! धन्यवाद नमस्ते"
         class="whatsapp-btn">व्हाट्सएप पर ऑर्डर करें</a>
 
+      <!-- Weekly Subscription in Hindi -->
+      <div style="background:#fffbe6; padding:1.5rem; border-radius:16px; margin:2rem 0; border:2px solid #ffcc80;">
+        <h3>साप्ताहिक सब्स्क्रिप्शन प्लान</h3>
+        <p><strong>हर सोमवार और गुरुवार</strong> को ताज़ा डिलीवरी — कभी खत्म नहीं होगा!</p>
+        <form id="subscriptionFormHi" onsubmit="generateSubscriptionHi(event)">
+          <select name="product" required>
+            <option value="">उत्पाद चुनें</option>
+            <option value="दूध">ताज़ा गाय का दूध (₹50/लीटर)</option>
+            <option value="खोया">घर का खोया (₹1000/किलो)</option>
+            <option value="घी">शुद्ध देसी घी (₹2000/किलो)</option>
+          </select>
+          <input type="number" name="quantity" placeholder="मात्रा (लीटर/किलो)" min="1" required>
+          <input type="text" name="name" placeholder="आपका नाम" required>
+          <input type="text" name="address" placeholder="डिलीवरी पता" required>
+          <input type="tel" name="phone" placeholder="फ़ोन (व्हाट्सएप)" required>
+          <button type="submit" class="subscribe-btn">व्हाट्सएप से सब्सक्राइब करें</button>
+        </form>
+      </div>
+
       <form action="https://formspree.io/f/xgvpqeww" method="POST">
         <h3>संपर्क करें या ऑर्डर दें</h3>
         <input type="text" name="name" placeholder="आपका नाम" required>
@@ -194,6 +252,28 @@
         <textarea name="message" placeholder="उदाहरण: 2 लीटर दूध + 500 ग्राम घी" required rows="3"></textarea>
         <button type="submit">ऑर्डर भेजें</button>
       </form>
+
+      <!-- Feedback & FAQ in Hindi -->
+      <form action="https://formspree.io/f/xgvpqeww" method="POST" style="margin-top: 2rem;">
+        <h3>अपनी प्रतिक्रिया दें</h3>
+        <p>हमारी मदद करें! अपनी राय बताएं।</p>
+        <input type="text" name="name" placeholder="आपका नाम" required>
+        <input type="email" name="email" placeholder="आपका ईमेल" required>
+        <textarea name="feedback" placeholder="अपनी प्रतिक्रिया या सुझाव" required rows="4"></textarea>
+        <button type="submit">प्रतिक्रिया भेजें</button>
+      </form>
+
+      <div class="faq-section">
+        <h3>सामान्य प्रश्न</h3>
+        <div class="faq-question">डिलीवरी का समय क्या है?</div>
+        <div class="faq-answer">हम हर सुबह 7 से 10 बजे के बीच ताज़ा डिलीवरी करते हैं।</div>
+        <div class="faq-question">क्या आप हार्मोन का उपयोग करते हैं?</div>
+        <div class="faq-answer">नहीं, हमारी गायें घास-चराई वाली और हार्मोन-मुक्त हैं।</div>
+        <div class="faq-question">क्या मैं सब्स्क्रिप्शन रद्द कर सकता हूँ?</div>
+        <div class="faq-answer">हाँ, अगली डिलीवरी से 24 घंटे पहले व्हाट्सएप पर सूचित करें।</div>
+        <div class="faq-question">भुगतान कैसे करें?</div>
+        <div class="faq-answer">साप्ताहिक यूपीआई, कैश या बैंक ट्रांसफर से।</div>
+      </div>
 
       <div class="map-container">
         <h3>कोटवा में हमारा फार्म देखें</h3>
@@ -225,6 +305,50 @@
         btn.textContent = 'View in English';
         document.documentElement.lang = 'hi';
       }
+    }
+
+    function generateSubscription(e) {
+      e.preventDefault();
+      const form = e.target;
+      const product = form.product.value;
+      const qty = form.quantity.value;
+      const name = form.name.value;
+      const address = form.address.value;
+      const phone = form.phone.value;
+
+      const message = `*Weekly Subscription - Krishnabhog Dairy*%0A%0A` +
+        `Product: ${product}%0A` +
+        `Quantity: ${qty} ${product === 'Milk' ? 'liters' : 'kg'}%0A` +
+        `Delivery Days: Monday & Thursday%0A%0A` +
+        `*Customer Details*%0A` +
+        `Name: ${name}%0A` +
+        `Address: ${address}%0A` +
+        `Phone: ${phone}%0A%0A` +
+        `We'll confirm in 5 mins! Thank you`;
+
+      window.location.href = `https://wa.me/919891714530?text=${message}`;
+    }
+
+    function generateSubscriptionHi(e) {
+      e.preventDefault();
+      const form = e.target;
+      const product = form.product.value;
+      const qty = form.quantity.value;
+      const name = form.name.value;
+      const address = form.address.value;
+      const phone = form.phone.value;
+
+      const message = `*साप्ताहिक सब्स्क्रिप्शन - कृष्णभोग डेयरी*%0A%0A` +
+        `उत्पाद: ${product}%0A` +
+        `मात्रा: ${qty} ${product === 'दूध' ? 'लीटर' : 'किलो'}%0A` +
+        `डिलीवरी दिवस: सोमवार और गुरुवार%0A%0A` +
+        `*ग्राहक विवरण*%0A` +
+        `नाम: ${name}%0A` +
+        `पता: ${address}%0A` +
+        `फ़ोन: ${phone}%0A%0A` +
+        `5 मिनट में कन्फर्म करेंगे! धन्यवाद`;
+
+      window.location.href = `https://wa.me/919891714530?text=${message}`;
     }
   </script>
 
